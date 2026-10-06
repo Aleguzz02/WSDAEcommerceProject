@@ -1,10 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Web Store</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <p>Checkout</p>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-brand">
+        <h1>WebStore</h1>
+    </div>
+
+    <form class="nav-search" action="home.html" method="get">
+        <input type="text" id="search-input" name="q" placeholder="Cerca prodotti..." aria-label="Cerca prodotti" required>
+        <button type="submit">Cerca</button>
+    </form>
+
+    <div class="nav-user">
+        <span>Ciao, <strong>Mario Rossi</strong></span>
+        <nav class="nav-links">
+            <a href="#">Profilo</a>
+            <a href="#">I miei ordini</a>
+            <a href="carrello.html">Carrello</a>
+            <a href="login.html">Esci</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENUTO PRINCIPALE CHECKOUT -->
+<main class="checkout-layout">
+    <h2>Completa il tuo Ordine</h2>
+
+    <form action="conferma.html" method="get" class="checkout-form">
+
+        <!-- SEZIONE 1: INDIRIZZO DI SPEDIZIONE -->
+        <section class="checkout-section">
+            <h3>1. Indirizzo di Spedizione</h3>
+
+            <div class="form-group">
+                <label for="destinatario">Nome e Cognome Destinatario:</label>
+                <input type="text" id="destinatario" name="destinatario" value="Mario Rossi" required>
+            </div>
+
+            <div class="form-group">
+                <label for="indirizzo">Indirizzo (Via/Piazza e Civico):</label>
+                <input type="text" id="indirizzo" name="indirizzo" value="Via Roma 123" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group flex-2">
+                    <label for="citta">Città:</label>
+                    <input type="text" id="citta" name="citta" value="Palermo" required>
+                </div>
+
+                <div class="form-group flex-1">
+                    <label for="cap">CAP:</label>
+                    <input type="text" id="cap" name="cap" value="90100" pattern="[0-9]{5}" maxlength="5" required>
+                </div>
+
+                <div class="form-group flex-1">
+                    <label for="provincia">Provincia:</label>
+                    <input type="text" id="provincia" name="provincia" value="PA" maxlength="2" required>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 2: MODALITÀ DI PAGAMENTO -->
+        <section class="checkout-section">
+            <h3>2. Modalità di Pagamento</h3>
+
+            <div class="payment-options">
+                <label class="radio-label">
+                    <input type="radio" name="pagamento" value="carta" checked>
+                    Carta di Credito / Debito
+                </label>
+
+                <label class="radio-label">
+                    <input type="radio" name="pagamento" value="paypal">
+                    PayPal
+                </label>
+
+                <label class="radio-label">
+                    <input type="radio" name="pagamento" value="contrassegno">
+                    Contanti alla Consegna
+                </label>
+            </div>
+
+            <!-- Dati simulazione carta -->
+            <div class="card-details" id="card-details-box">
+                <div class="form-group">
+                    <label for="card-number">Numero Carta:</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" pattern="[0-9\s]{16,19}">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label for="card-exp">Scadenza (MM/AA):</label>
+                        <input type="text" id="card-exp" placeholder="12/28" pattern="(0[1-9]|1[0-2])\/[0-9]{2}">
+                    </div>
+
+                    <div class="form-group flex-1">
+                        <label for="card-cvv">CVV:</label>
+                        <input type="password" id="card-cvv" placeholder="123" maxlength="3" pattern="[0-9]{3}">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PULSANTE CONFERMA ORDINE -->
+        <div class="checkout-actions">
+            <a href="carrello.html">&larr; Torna al carrello</a>
+            <button type="submit" class="btn-confirm-order">Conferma ed Effettua Ordine</button>
+        </div>
+    </form>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; 2026 WebStore S.R.L. - Tutti i diritti riservati.</p>
+    <p><small>Disclaimer: Questo sito è una simulazione accademica a scopo didattico.</small></p>
+</footer>
+
+<!-- SCRIPT DEDICATO AL CHECKOUT -->
+<script src="js/checkout.js"></script>
 </body>
 </html>

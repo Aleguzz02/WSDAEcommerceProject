@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Conferma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordine Confermato</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <p>Conferma</p>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-brand">
+        <h1>WebStore</h1>
+    </div>
+
+    <form class="nav-search" action="home.html" method="get">
+        <input type="text" id="search-input" name="q" placeholder="Cerca prodotti..." aria-label="Cerca prodotti" required>
+        <button type="submit">Cerca</button>
+    </form>
+
+    <div class="nav-user">
+        <span>Ciao, <strong>Mario Rossi</strong></span>
+        <nav class="nav-links">
+            <a href="#">Profilo</a>
+            <a href="#">I miei ordini</a>
+            <a href="carrello.html">Carrello</a>
+            <a href="login.html">Esci</a>
+        </nav>
+    </div>
+</header>
+
+<!-- CONTENUTO CONFERMA -->
+<main class="confirm-container">
+    <div class="confirm-card">
+        <h2>Grazie per il tuo acquisto!</h2>
+        <p>Il tuo ordine <strong>#WS-2026-9812</strong> è stato registrato con successo.</p>
+        <p>Riceverai a breve una email di riepilogo con i dettagli di spedizione.</p>
+
+        <div class="confirm-actions">
+            <a href="home.html">
+                <button type="button" class="btn-continue">Continua a fare acquisti</button>
+            </a>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; 2026 WebStore S.R.L. - Tutti i diritti riservati.</p>
+    <p><small>Disclaimer: Questo sito è una simulazione accademica a scopo didattico.</small></p>
+</footer>
+
 </body>
 </html>
