@@ -883,3 +883,70 @@ dialog button {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+/* ==========================================================================
+   AGGIUNTE ES. 03 (Ordinamento, Preferiti e Clic Modale)
+   ========================================================================== */
+#sort-filter {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 14px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-checkbox {
+    margin-top: 10px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-checkbox label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Titolo e immagine cliccabili per aprire la modale */
+.product-card h4,
+.product-card img {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.product-card h4:hover,
+.product-card img:hover {
+    opacity: 0.85;
+    color: var(--primary-color);
+}
+
+/* Pulsante Preferiti */
+.btn-fav {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: all 0.2s;
+}
+
+.btn-fav.is-favorite {
+    background-color: #fee2e2;
+    border-color: #ef4444;
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Azioni interne alla modale */
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}

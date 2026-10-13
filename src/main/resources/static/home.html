@@ -55,6 +55,24 @@
             </select>
         </div>
 
+        <!-- Ordinamento -->
+        <div class="filter-group">
+            <label for="sort-filter">Ordina per:</label>
+            <select id="sort-filter">
+                <option value="default">Predefinito</option>
+                <option value="price-asc">Prezzo: dal più basso</option>
+                <option value="price-desc">Prezzo: dal più alto</option>
+                <option value="name-asc">Nome: A - Z</option>
+            </select>
+        </div>
+
+        <!-- Filtro solo Preferiti -->
+        <div class="filter-group filter-checkbox">
+            <label>
+                <input type="checkbox" id="favorites-toggle"> Mostra solo preferiti
+            </label>
+        </div>
+
         <button type="button" id="btn-reset-filters" class="btn-reset">Azzera filtri</button>
     </aside>
 
@@ -85,7 +103,12 @@
     <img id="modal-info-img" src="" alt="Dettaglio Prodotto">
     <p id="modal-info-desc">Descrizione dettagliata.</p>
     <p><strong>Prezzo: </strong><span id="modal-info-price"></span></p>
-    <button type="button" id="btn-close-info">Chiudi</button>
+    <p><strong>Disponibilità: </strong><span id="modal-info-stock"></span>pz</p>
+
+    <div class="modal-actions">
+        <button type="button" id="btn-modal-add" class="btn-add">Aggiungi al carrello</button>
+        <button type="button" id="btn-close-info">Chiudi</button>
+    </div>
 </dialog>
 
 <!-- MODALE 2: CONFERMA AGGIUNTA CARRELLO -->
@@ -103,7 +126,8 @@
 </footer>
 
 <!-- SCRIPT DEDICATO ALLA HOME -->
+<script src="js/jquery-4.0.0.min.js"></script>
 <script src="js/products-data.js"></script>
-<script src="js/home.js"></script>
+<script src="js/home-jquery.js"></script>
 </body>
 </html>
