@@ -10,16 +10,18 @@
 
 <!-- NAVBAR -->
 <header class="navbar">
+    <!-- Titolo store o logo -->
     <div class="nav-brand">
         <h1>WebStore</h1>
     </div>
 
-    <!-- Barra di ricerca: testo obbligatorio, porta sempre a home.html -->
-    <form class="nav-search" action="home.html" method="get">
-        <input type="text" id="search-input" name="q" placeholder="Cerca prodotti..." aria-label="Cerca prodotti" required>
+    <!-- Barra di ricerca -->
+    <form class="nav-search" id="search-form">
+        <input type="text" id="search-input" placeholder="Cerca prodotti..." aria-label="Cerca prodotti" required>
         <button type="submit">Cerca</button>
     </form>
 
+    <!-- Funzionalità aggiuntive -->
     <div class="nav-user">
         <span>Ciao, <strong>Mario Rossi</strong></span>
         <nav class="nav-links">
@@ -31,97 +33,50 @@
     </div>
 </header>
 
-<!-- CORPO PRINCIPALE (SIDEBAR + CATALOGO) -->
+<!-- CORPO PRINCIPALE (FILTRI + CATALOGO + CARRELLO) -->
 <div class="main-layout">
 
-    <!-- SIDEBAR SINISTRA -->
+    <!-- SIDEBAR SINISTRA: FILTRI -->
     <aside class="sidebar">
-        <h3>Categorie</h3>
-        <ul>
-            <li><a href="#">Tutti i prodotti</a></li>
-            <li><a href="#">Elettronica</a></li>
-            <li><a href="#">Informatica</a></li>
-            <li><a href="#">Accessori</a></li>
-            <li><a href="#">Casa & Ufficio</a></li>
-        </ul>
+        <h3>Filtri</h3>
+
+        <!-- Sezione filtri -->
+        <div class="filter-group">
+            <label for="category-filter">Categoria:</label>
+            <!-- menù a tendina con filtri -->
+            <select id="category-filter">
+                <option value="all">Tutte le categorie</option>
+                <option value="laptop">Laptop</option>
+                <option value="accessori">Accessori</option>
+                <option value="monitor">Monitor</option>
+                <option value="audio">Audio</option>
+                <option value="smartphone">Smartphone</option>
+                <option value="tablet">Tablet</option>
+            </select>
+        </div>
+
+        <button type="button" id="btn-reset-filters" class="btn-reset">Azzera filtri</button>
     </aside>
 
-    <!-- CONTENUTO PRINCIPALE (4 PRODOTTI) -->
-    <main class="product-grid">
-
-        <!-- Prodotto 1 -->
-        <article class="product-card"
-                 data-id="1"
-                 data-title="Cuffie Bluetooth"
-                 data-desc="Cuffie wireless con cancellazione attiva del rumore e 30 ore di autonomia."
-                 data-img="https://placehold.co/400x300?text=Cuffie"
-                 data-price="49.99">
-            <img src="https://placehold.co/200x150?text=Cuffie" alt="Cuffie Bluetooth">
-            <h4>Cuffie Bluetooth</h4>
-            <p class="desc">Cuffie wireless con cancellazione del rumore.</p>
-            <p class="price">€ 49.99</p>
-            <p class="rating">★★★★☆ (4/5)</p>
-            <div class="card-actions">
-                <button type="button" class="btn-info">Maggiori informazioni</button>
-                <button type="button" class="btn-add">Aggiungi al carrello</button>
-            </div>
-        </article>
-
-        <!-- Prodotto 2 -->
-        <article class="product-card"
-                 data-id="2"
-                 data-title="Mouse Wireless"
-                 data-desc="Mouse ottico ergonomico ricaricabile con sensore ad alta precisione 4000 DPI."
-                 data-img="https://placehold.co/400x300?text=Mouse"
-                 data-price="19.99">
-            <img src="https://placehold.co/200x150?text=Mouse" alt="Mouse Wireless">
-            <h4>Mouse Wireless</h4>
-            <p class="desc">Mouse ergonomico per ufficio e studio.</p>
-            <p class="price">€ 19.99</p>
-            <p class="rating">★★★★★ (5/5)</p>
-            <div class="card-actions">
-                <button type="button" class="btn-info">Maggiori informazioni</button>
-                <button type="button" class="btn-add">Aggiungi al carrello</button>
-            </div>
-        </article>
-
-        <!-- Prodotto 3 -->
-        <article class="product-card"
-                 data-id="3"
-                 data-title="Tastiera Meccanica"
-                 data-desc="Tastiera meccanica con retroilluminazione RGB, switch lineari e layout italiano."
-                 data-img="https://placehold.co/400x300?text=Tastiera"
-                 data-price="59.99">
-            <img src="https://placehold.co/200x150?text=Tastiera" alt="Tastiera Meccanica">
-            <h4>Tastiera Meccanica</h4>
-            <p class="desc">Tastiera meccanica retroilluminata RGB.</p>
-            <p class="price">€ 59.99</p>
-            <p class="rating">★★★★☆ (4/5)</p>
-            <div class="card-actions">
-                <button type="button" class="btn-info">Maggiori informazioni</button>
-                <button type="button" class="btn-add">Aggiungi al carrello</button>
-            </div>
-        </article>
-
-        <!-- Prodotto 4 -->
-        <article class="product-card"
-                 data-id="4"
-                 data-title="Supporto Monitor"
-                 data-desc="Supporto da scrivania in alluminio regolabile in altezza per monitor fino a 32 pollici."
-                 data-img="https://placehold.co/400x300?text=Supporto"
-                 data-price="29.99">
-            <img src="https://placehold.co/200x150?text=Supporto" alt="Supporto Monitor">
-            <h4>Supporto Monitor</h4>
-            <p class="desc">Supporto rialzato regolabile in altezza.</p>
-            <p class="price">€ 29.99</p>
-            <p class="rating">★★★☆☆ (3/5)</p>
-            <div class="card-actions">
-                <button type="button" class="btn-info">Maggiori informazioni</button>
-                <button type="button" class="btn-add">Aggiungi al carrello</button>
-            </div>
-        </article>
-
+    <!-- CATALOGO (POPOLATO DINAMICAMENTE)) -->
+    <main id="products" class="product-grid">
+        <!-- Gli elementi article verranno generati dinamicamente da renderProducts() -->
     </main>
+
+    <!-- SIDEBAR DESTRA: CARRELLO IN TEMPO REALE -->
+    <aside id="cart-panel" class="cart-panel">
+        <h3>Carrello</h3>
+        <div id="cart-items-container">
+            <!-- Popolato via renderCart() -->
+        </div>
+
+        <div class="cart-panel-footer">
+            <p class="cart-total-text">Totale: <strong>€ <span id="cart-total-amount">0.00</span></strong></p>
+            <a href="checkout.html">
+                <button type="button" id="btn-cart-checkout" class="btn-add" disabled>Procedi al Checkout</button>
+            </a>
+        </div>
+    </aside>
 </div>
 
 <!-- MODALE 1: MAGGIORI INFORMAZIONI -->
@@ -148,6 +103,7 @@
 </footer>
 
 <!-- SCRIPT DEDICATO ALLA HOME -->
+<script src="js/products-data.js"></script>
 <script src="js/home.js"></script>
 </body>
 </html>
